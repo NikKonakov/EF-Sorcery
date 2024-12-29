@@ -1,0 +1,9 @@
+{
+  "item.ef_sorcery.cursed_fists": "Cursed Fists",
+  "item.ef_sorcery.cursed_fists.tooltip": "Empower Cursed Energy in your fists!",
+  "effect.ef_sorcery.black_flash_buff_effect": "Zone State",
+  "effect.ef_sorcery.black_flash_debuff_effect": "Black Sparks Disruption",
+  "black_flash_buff_message": "You feel power surges into you",
+  "black_flash_buff_effect_start_message": "You feel tremendous power flows through you",
+  "black_flash_buff_effect_stop_message": "The given power fades away from you..."
+}
