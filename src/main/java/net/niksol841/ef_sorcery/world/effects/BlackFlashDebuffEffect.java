@@ -22,14 +22,37 @@ public class BlackFlashDebuffEffect extends MobEffect {
     public void removeAttributeModifiers(LivingEntity pLivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
         super.removeAttributeModifiers(pLivingEntity, pAttributeMap, pAmplifier);
 
+        //Add health debuff
         AttributeInstance maxHealthAttribute = pLivingEntity.getAttribute(Attributes.MAX_HEALTH);
+        maxHealthAttribute.addTransientModifier(new AttributeModifier(
+                HEALTH_DEBUFF_UUID,
+                "black_flash_health_debuff",
+                0.10F+(0.05*pAmplifier),
+                AttributeModifier.Operation.MULTIPLY_TOTAL
+        ));
+
+        //Add movement speed debuff
+        AttributeInstance speedAttribute = pLivingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
+        speedAttribute.addTransientModifier(new AttributeModifier(
+                SPEED_DEBUFF_UUID,
+                "black_flash_speed_debuff",
+                0.10F+(0.05*pAmplifier),
+                AttributeModifier.Operation.MULTIPLY_TOTAL
+        ));
     }
 
     @Override
     public void addAttributeModifiers(LivingEntity pLivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
         super.addAttributeModifiers(pLivingEntity, pAttributeMap, pAmplifier);
 
-
+        AttributeInstance maxHealthAttribute = pLivingEntity.getAttribute(Attributes.MAX_HEALTH);
+        if (maxHealthAttribute != null) {
+            maxHealthAttribute.removeModifier(HEALTH_DEBUFF_UUID);
+        }
+        AttributeInstance speedAttribute = pLivingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
+        if (speedAttribute != null) {
+            speedAttribute.removeModifier(SPEED_DEBUFF_UUID);
+        }
     }
 
     @Override
