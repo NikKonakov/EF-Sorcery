@@ -56,7 +56,7 @@ public class BlackFlashBuffEffect extends MobEffect {
         speedAttribute.addTransientModifier(new AttributeModifier(
                 SPEED_BOOST_UUID,
                 "black_flash_speed_boost",
-                0.10F + (pAmplifier * 3 * 0.01), //Increaseas for 30% for every amp level (ignores 0)
+                0.10F + (pAmplifier * 3 * 0.01), //Increases for 30% for every amp level (ignores 0)
                 AttributeModifier.Operation.MULTIPLY_TOTAL
         ));
 
@@ -65,7 +65,7 @@ public class BlackFlashBuffEffect extends MobEffect {
         damageSpeedAttribute.addTransientModifier(new AttributeModifier(
                 ATTACK_SPEED_BOOST_UUID,
                 "black_flash_attack_speed_boost",
-                0.3F + (pAmplifier * 5 * 0.01), //Increaseas for 50% for every amp level
+                0.3F + (pAmplifier * 5 * 0.01), //Increases for 50% for every amp level
                 AttributeModifier.Operation.MULTIPLY_TOTAL
         ));
     }

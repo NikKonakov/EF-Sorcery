@@ -2,12 +2,7 @@ package net.niksol841.ef_sorcery.main;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -20,13 +15,10 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 import net.niksol841.ef_sorcery.config.Config;
-import net.niksol841.ef_sorcery.world.capabilities.item.CursedFistCapability;
+import net.niksol841.ef_sorcery.world.capabilities.item.EFCursedFistCapability;
 import net.niksol841.ef_sorcery.world.effects.EFSorceryEffects;
-import net.niksol841.ef_sorcery.world.item.CursedFistsItem;
 import net.niksol841.ef_sorcery.world.item.SorceryItems;
 import org.slf4j.Logger;
 
@@ -50,7 +42,7 @@ public class ef_sorcery {
     public ef_sorcery() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(CursedFistCapability::register);
+        modEventBus.addListener(EFCursedFistCapability::register);
 //        BLOCKS.register(modEventBus);
         SorceryItems.ITEMS.register(modEventBus);
         EFSorceryEffects.EFFECTS.register(modEventBus);
