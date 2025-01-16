@@ -18,7 +18,7 @@ public class CursedFistsItem extends WeaponItem {
 
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn ) {
         tooltip.add(Component.literal(""));
-        tooltip.add(Component.translatable("item.ef_sorcery.cursed_fists.tooltip").withStyle(ChatFormatting.BLUE));
+        tooltip.add(Component.translatable("item.EFSorcery.cursed_fists.tooltip").withStyle(ChatFormatting.BLUE));
     }
 
 }

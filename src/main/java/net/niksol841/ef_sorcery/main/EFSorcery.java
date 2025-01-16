@@ -23,23 +23,23 @@ import net.niksol841.ef_sorcery.world.item.SorceryItems;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(ef_sorcery.MODID)
-public class ef_sorcery {
+@Mod(EFSorcery.MOD_ID)
+public class EFSorcery {
 
     // Define mod id in a common place for everything to reference
-    public static final String MODID = "ef_sorcery";
+    public static final String MOD_ID = "EFSorcery";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
-    // Create a Deferred Register to hold Blocks which will all be registered under the "ef_sorcery" namespace
+    // Create a Deferred Register to hold Blocks which will all be registered under the "EFSorcery" namespace
 //    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
-    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "ef_sorcery" namespace
+    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "EFSorcery" namespace
 //    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    // Creates a new Block with the id "ef_sorcery:example_block", combining the namespace and path
+    // Creates a new Block with the id "EFSorcery:example_block", combining the namespace and path
 //    public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
-    // Creates a new BlockItem with the id "ef_sorcery:example_block", combining the namespace and path
+    // Creates a new BlockItem with the id "EFSorcery:example_block", combining the namespace and path
 
-    public ef_sorcery() {
+    public EFSorcery() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(EFCursedFistCapability::register);
@@ -83,7 +83,7 @@ public class ef_sorcery {
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
 
         @SubscribeEvent
