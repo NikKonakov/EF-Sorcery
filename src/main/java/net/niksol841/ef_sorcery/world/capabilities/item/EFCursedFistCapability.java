@@ -19,7 +19,7 @@ import yesman.epicfight.world.capabilities.item.WeaponCapability;
 import java.util.function.Function;
 
 @Mod.EventBusSubscriber(
-        modid = "ef_sorcery",
+        modid = "EFSorcery",
         bus = Mod.EventBusSubscriber.Bus.MOD
 )
 
@@ -61,7 +61,7 @@ public class EFCursedFistCapability {
 
     @SubscribeEvent
     public static void register(WeaponCapabilityPresetRegistryEvent event) {
-        event.getTypeEntry().put(new ResourceLocation("ef_sorcery", "cursed_fists"), CURSED_FISTS);
+        event.getTypeEntry().put(new ResourceLocation("EFSorcery", "cursed_fists"), CURSED_FISTS);
     }
 
 }

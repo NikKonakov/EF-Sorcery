@@ -2,29 +2,63 @@ package net.niksol841.ef_sorcery.events;
 
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.niksol841.ef_sorcery.main.ef_sorcery;
+import net.niksol841.ef_sorcery.main.EFSorcery;
 import net.niksol841.ef_sorcery.world.capabilities.player.BlackFlashCountPlayerCapability;
 import net.niksol841.ef_sorcery.world.capabilities.player.BlackFlashCountPlayerCapabilityProvider;
 import net.niksol841.ef_sorcery.world.capabilities.player.CursedEnergyPlayerCapability;
+import net.niksol841.ef_sorcery.world.capabilities.player.CursedEnergyPlayerCapabilityProvider;
 
-@Mod.EventBusSubscriber(modid = ef_sorcery.MODID)
+@Mod.EventBusSubscriber(modid = EFSorcery.MOD_ID)
 public class ModEvents {
 
+    public static final ResourceLocation RESOURCE_BLACK_FLASH_COUNT = new ResourceLocation(EFSorcery.MOD_ID, "black_flash_count");
+    public static final ResourceLocation RESOURCE_CURSED_ENERGY_CAPACITY = new ResourceLocation(EFSorcery.MOD_ID, "cursed_energy_capacity");
+
     @SubscribeEvent
-    public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<LivingEntity> event){
-        if (event.getObject() instanceof Player){
+    public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<ServerPlayer> event){
+        if (event.getObject() instanceof ServerPlayer){
             if (!event.getObject().getCapability(BlackFlashCountPlayerCapabilityProvider.PLAYER_BLACK_FLASH).isPresent()){
-                event.addCapability(new ResourceLocation(ef_sorcery.MODID, "black_flash_count"), new BlackFlashCountPlayerCapabilityProvider());
+                event.addCapability(RESOURCE_BLACK_FLASH_COUNT, new BlackFlashCountPlayerCapabilityProvider());
             }
-//            if (!event.getObject().getCapability(CursedEnergyPlayerCapabilityProvider.PLAYER_CURSED_ENERGY).isPresent()){
-//                event.addCapability(new ResourceLocation(ef_sorcery.MODID, "cursed_energy_capacity"), new CursedEnergyPlayerCapabilityProvider());
-//            }
+            if (!event.getObject().getCapability(CursedEnergyPlayerCapabilityProvider.PLAYER_CURSED_ENERGY_CAPABILITY).isPresent()){
+                event.addCapability(RESOURCE_CURSED_ENERGY_CAPACITY, new CursedEnergyPlayerCapabilityProvider());
+            }
+        }
+    }
+
+    public static void onServerTick(TickEvent.ServerTickEvent event){
+        //Does regeneration every 0.5 seconds
+        if (event.getServer().getTickCount() % 10 == 0){
+            
+        };
+    }
+
+    @SubscribeEvent
+    public static void onPlayerClone(PlayerEvent.Clone playerEvent){
+        if (playerEvent.isWasDeath()){
+            Player originalContainer = playerEvent.getOriginal();
+            Player newContainer = playerEvent.getEntity();
+            //To copy Black Flashes
+            originalContainer.getCapability(BlackFlashCountPlayerCapabilityProvider.PLAYER_BLACK_FLASH).ifPresent(oldBFData -> {
+                newContainer.getCapability(BlackFlashCountPlayerCapabilityProvider.PLAYER_BLACK_FLASH).ifPresent(newData -> {
+                    newData.cloneFrom(oldBFData);
+                    newData.nullifyBlackFlashCount();
+                });
+            });
+            originalContainer.getCapability(CursedEnergyPlayerCapabilityProvider.PLAYER_CURSED_ENERGY_CAPABILITY).ifPresent(oldCEData -> {
+                newContainer.getCapability(CursedEnergyPlayerCapabilityProvider.PLAYER_CURSED_ENERGY_CAPABILITY).ifPresent(newData -> {
+                    newData.cloneFrom(oldCEData);
+                    newData.setCE(oldCEData.getCE());
+                });
+            });
         }
     }
 
