@@ -5,6 +5,7 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.niksol841.ef_sorcery.gameasset.EFSorcerySkills;
+import net.niksol841.ef_sorcery.main.ef_sorcery;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.api.forgeevent.WeaponCapabilityPresetRegistryEvent;
 import yesman.epicfight.gameasset.Animations;
@@ -19,7 +20,7 @@ import yesman.epicfight.world.capabilities.item.WeaponCapability;
 import java.util.function.Function;
 
 @Mod.EventBusSubscriber(
-        modid = "EFSorcery",
+        modid = ef_sorcery.MOD_ID,
         bus = Mod.EventBusSubscriber.Bus.MOD
 )
 
@@ -61,7 +62,7 @@ public class EFCursedFistCapability {
 
     @SubscribeEvent
     public static void register(WeaponCapabilityPresetRegistryEvent event) {
-        event.getTypeEntry().put(new ResourceLocation("EFSorcery", "cursed_fists"), CURSED_FISTS);
+        event.getTypeEntry().put(new ResourceLocation(ef_sorcery.MOD_ID, "cursed_fists"), CURSED_FISTS);
     }
 
 }

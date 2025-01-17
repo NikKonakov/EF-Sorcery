@@ -6,11 +6,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.server.level.ServerLevel;
-import net.niksol841.ef_sorcery.main.EFSorcery;
+import net.niksol841.ef_sorcery.main.ef_sorcery;
 
 public class EFSorceryDamageSourses {
     public static final ResourceKey<DamageType> BLACK_FLASH_KEY =
-            ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(EFSorcery.MOD_ID, "black_flash"));
+            ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(ef_sorcery.MOD_ID, "black_flash"));
 
     public static DamageSource getBlackFlashDamage(ServerLevel level) {
         // Access the registry and get the custom DamageType

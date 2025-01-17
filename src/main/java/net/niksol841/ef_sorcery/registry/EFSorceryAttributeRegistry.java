@@ -10,7 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.niksol841.ef_sorcery.main.ef_sorcery;
 
 @Mod.EventBusSubscriber(
-        modid = ef_sorcery.MODID,
+        modid = ef_sorcery.MOD_ID,
         bus = Mod.EventBusSubscriber.Bus.MOD
 )
 public class EFSorceryAttributeRegistry {
@@ -28,7 +28,7 @@ public class EFSorceryAttributeRegistry {
     }
 
     static {
-        ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, ef_sorcery.MODID);
+        ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, ef_sorcery.MOD_ID);
         CE_MAX = ATTRIBUTES.register("cursed_energy_max",
                 () -> new RangedAttribute(
                         "attribute.ef_sorcery.cursed_energy_max",

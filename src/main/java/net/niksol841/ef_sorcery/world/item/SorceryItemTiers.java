@@ -9,9 +9,13 @@ import net.minecraft.world.level.ItemLike;
 import java.util.function.Supplier;
 
 public enum SorceryItemTiers implements Tier {
-    CURSED_FISTS(2, 3000, 9.0F, 2, 5, () -> {
-        return Ingredient.of(new ItemLike[]{Items.IRON_INGOT});
-    });
+    CURSED_FISTS(
+            2,
+            3000,
+            9.0F,
+            2,
+            5,
+            () -> Ingredient.of(Items.IRON_INGOT));
 
 
     private final int harvestLevel;
@@ -56,6 +60,6 @@ public enum SorceryItemTiers implements Tier {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return (Ingredient) this.repairMaterial.get();
+        return this.repairMaterial.get();
     }
 }
