@@ -29,7 +29,8 @@ public class ModEvents {
                 event.addCapability(RESOURCE_BLACK_FLASH_COUNT, new BlackFlashCountPlayerCapabilityProvider());
             }
             if (!event.getObject().getCapability(CursedEnergyPlayerCapabilityProvider.PLAYER_CURSED_ENERGY_CAPABILITY).isPresent()){
-                event.addCapability(RESOURCE_CURSED_ENERGY_CAPACITY, new CursedEnergyPlayerCapabilityProvider());
+                event.addCapability(
+                        RESOURCE_CURSED_ENERGY_CAPACITY, new CursedEnergyPlayerCapabilityProvider());
             }
         }
     }
