@@ -11,7 +11,7 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
-import net.niksol841.ef_sorcery.main.EFSorcery;
+import net.niksol841.ef_sorcery.main.ef_sorcery;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -20,7 +20,7 @@ public class CursedEnergyPlayerCapabilityProvider implements ICapabilityProvider
     public static Capability<CursedEnergyPlayerCapability> PLAYER_CURSED_ENERGY_CAPABILITY = CapabilityManager.get(new CapabilityToken<>() {
     });
 
-    public static final ResourceLocation IDENTIFIER = new ResourceLocation(EFSorcery.MOD_ID, "cursed_energy_capacity_capability");
+    public static final ResourceLocation IDENTIFIER = new ResourceLocation(ef_sorcery.MOD_ID, "cursed_energy_capacity_capability");
 
     private CursedEnergyPlayerCapability cursed_energy = null;
 

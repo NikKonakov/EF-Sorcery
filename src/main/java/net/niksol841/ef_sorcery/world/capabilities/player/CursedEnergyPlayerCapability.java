@@ -9,8 +9,9 @@ import java.util.Optional;
 public class CursedEnergyPlayerCapability implements ICursedEnergyCapability {
     private int cursed_energy_capacity = 0;
     private final int MIN_CURSED_ENERGY_CAPACITY = 0;
-    private int max_cursed_energy_capacity = 0;
+    private int max_cursed_energy_capacity = 100;
     private int cursed_energy_regen_rate = 0;
+    private boolean canRegenerate = true;
     private ServerPlayer serverPlayer = null;
 
     public CursedEnergyPlayerCapability(){}
@@ -32,7 +33,9 @@ public class CursedEnergyPlayerCapability implements ICursedEnergyCapability {
     }
 
     public void regenerateCE(){
-        cursed_energy_capacity = Math.min(cursed_energy_capacity+cursed_energy_regen_rate, max_cursed_energy_capacity);
+        if (this.canRegenerate) {
+            cursed_energy_capacity = Math.min(cursed_energy_capacity+cursed_energy_regen_rate , max_cursed_energy_capacity);
+        }
     }
 
     public void setCE(int cursed_energy){
@@ -127,9 +130,19 @@ public class CursedEnergyPlayerCapability implements ICursedEnergyCapability {
         }
     }
 
-    private void setServerPlayer(ServerPlayer serverPlayer) {
+    public void setServerPlayer(ServerPlayer serverPlayer) {
         this.serverPlayer = serverPlayer;
     }
 
-    ;
+    public String toString(){
+        return serverPlayer.toString() + " Max cursed energy capacity: " + max_cursed_energy_capacity + ", current cured energy capacity: " + cursed_energy_capacity;
+    }
+
+    public boolean isCanRegenerate() {
+        return canRegenerate;
+    }
+
+    public void setCanRegenerate(boolean canRegenerate) {
+        this.canRegenerate = canRegenerate;
+    }
 }

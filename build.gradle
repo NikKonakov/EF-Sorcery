@@ -157,7 +157,7 @@ dependencies {
     implementation fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:5889471")
     implementation fg.deobf("curse.maven:selene-499980:6009554")
     implementation fg.deobf("curse.maven:curios-309927:6058834")
-    implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:6054196")
+//    implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:6054196")
     implementation fg.deobf("curse.maven:mmmmmmmmmmmm-225738:5737040")
     implementation fg.deobf("curse.maven:epic-fight-guandao-moveset-900642:5819718")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'

@@ -5,7 +5,7 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.niksol841.ef_sorcery.main.EFSorcery;
+import net.niksol841.ef_sorcery.main.ef_sorcery;
 
 public class EFSorceryEffects {
     public static final DeferredRegister<MobEffect> EFFECTS;
@@ -13,7 +13,7 @@ public class EFSorceryEffects {
     public static final RegistryObject<MobEffect> BLACK_FLASH_DEBUFF_EFFECT;
 
     static {
-        EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, EFSorcery.MOD_ID);
+        EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, ef_sorcery.MOD_ID);
         BLACK_FLASH_BUFF_EFFECT = EFFECTS.register("black_flash_buff_effect", () -> {
             return new BlackFlashBuffEffect(MobEffectCategory.BENEFICIAL, 16185078);
         });

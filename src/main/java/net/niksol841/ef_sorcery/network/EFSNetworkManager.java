@@ -4,11 +4,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
-import net.niksol841.ef_sorcery.main.EFSorcery;
+import net.niksol841.ef_sorcery.main.ef_sorcery;
 
 public class EFSNetworkManager {
     private static final String PROTOCOL_VERSION = "1";
-    public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation(EFSorcery.MOD_ID, "network_manager"),
+    public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation(ef_sorcery.MOD_ID, "network_manager"),
             () -> "1",
             "1"::equals,
             "1"::equals);
