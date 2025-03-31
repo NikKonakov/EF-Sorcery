@@ -3,9 +3,9 @@ package net.niksol841.ef_sorcery.world.damage_type;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
-import net.minecraft.server.level.ServerLevel;
 import net.niksol841.ef_sorcery.main.ef_sorcery;
 
 public class EFSorceryDamageSourses {

@@ -142,22 +142,34 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
     compileOnly fg.deobf("curse.maven:geckolib-388172:4822252")
     compileOnly fg.deobf("curse.maven:azurelib-817423:5500355")
     compileOnly fg.deobf("curse.maven:azurelib-armor-912767:5500370")
+
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
     runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+
     implementation fg.deobf("curse.maven:architectury-api-419699:5137938")
     implementation fg.deobf("curse.maven:octo-lib-916747:5115332")
     implementation fg.deobf("curse.maven:relics-mod-445274:5435202")
+
     implementation fg.deobf("curse.maven:embeddium-908741:5556138")
     implementation fg.deobf("curse.maven:oculus-581495:5299671")
+
     implementation fg.deobf("curse.maven:epic-fight-mod-405076:5856683")
     implementation fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:5889471")
+
     implementation fg.deobf("curse.maven:selene-499980:6009554")
     implementation fg.deobf("curse.maven:curios-309927:6058834")
+
+//    implementation fg.deobf("curse.maven:ef-bs-933502:6094858")
+//    implementation fg.deobf("curse.maven:combat-arts-sekiro-epic-fight-1148013:5976316")
+//    implementation fg.deobf("curse.maven:battle-arts-api-1091499:6094856")
+//    implementation fg.deobf("curse.maven:ex-cap-1074178:6094860")
 //    implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:6054196")
+
     implementation fg.deobf("curse.maven:mmmmmmmmmmmm-225738:5737040")
     implementation fg.deobf("curse.maven:epic-fight-guandao-moveset-900642:5819718")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'

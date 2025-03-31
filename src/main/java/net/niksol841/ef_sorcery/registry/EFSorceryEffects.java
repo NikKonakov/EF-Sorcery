@@ -1,4 +1,4 @@
-package net.niksol841.ef_sorcery.world.effects;
+package net.niksol841.ef_sorcery.registry;
 
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -6,6 +6,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.niksol841.ef_sorcery.main.ef_sorcery;
+import net.niksol841.ef_sorcery.world.effects.BlackFlashBuffEffect;
+import net.niksol841.ef_sorcery.world.effects.BlackFlashDebuffEffect;
 
 public class EFSorceryEffects {
     public static final DeferredRegister<MobEffect> EFFECTS;

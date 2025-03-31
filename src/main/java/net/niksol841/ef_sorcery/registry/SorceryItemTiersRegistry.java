@@ -1,19 +1,18 @@
-package net.niksol841.ef_sorcery.world.item;
+package net.niksol841.ef_sorcery.registry;
 
 import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ItemLike;
 
 import java.util.function.Supplier;
 
-public enum SorceryItemTiers implements Tier {
+public enum SorceryItemTiersRegistry implements Tier {
     CURSED_FISTS(
             2,
             3000,
             9.0F,
-            2,
+            1,
             5,
             () -> Ingredient.of(Items.IRON_INGOT));
 
@@ -25,7 +24,7 @@ public enum SorceryItemTiers implements Tier {
     private final int enchantability;
     private final LazyLoadedValue<Ingredient> repairMaterial;
 
-    SorceryItemTiers(int harvestLevel, int maxUses, float efficiency, float damage, int enchantability, Supplier repairMaterialIn) {
+    SorceryItemTiersRegistry(int harvestLevel, int maxUses, float efficiency, float damage, int enchantability, Supplier repairMaterialIn) {
         this.harvestLevel = harvestLevel;
         this.maxUses = maxUses;
         this.efficiency = efficiency;

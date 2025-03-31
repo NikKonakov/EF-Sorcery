@@ -1,11 +1,32 @@
 package net.niksol841.ef_sorcery.world.capabilities.player;
 
+import net.minecraftforge.common.capabilities.AutoRegisterCapability;
+
+@AutoRegisterCapability
 public interface ICursedEnergyCapability {
+
     /**
      * Gets user's current CE
      * @return current CE
      */
     int getCE();
+
+    /**
+     * Checks if user has access to cursed energy
+     * @return True if has, false otherwise
+     */
+    boolean isCursedUser();
+
+    /**
+     * Sets user's ability to use cursed energy
+     * @param isCursedUser - is able to use cursed energy
+     */
+    void setIsCursedUser(boolean isCursedUser);
+
+    /**
+     * Regenerates user's CE
+     */
+    void setCE(int cursed_energy);
 
     /**
      * Gets user's max possible CE
@@ -22,17 +43,17 @@ public interface ICursedEnergyCapability {
     /**
      * Safely adds CE to user
      * @param amount amount of CE to be added
-     * @throws NullPointerException if {@param amount} is less than zero
+     * @throws IllegalArgumentException if {@param amount} is less than zero
      */
-    void addCE(int amount) throws NullPointerException;
+    void addCE(int amount) throws IllegalArgumentException;
 
     /**
      * Safely subtracts CE from user
      * @param amount - amount to subtract
-     * @throws NullPointerException
+     * @throws IllegalArgumentException
      * Throws an exception if amount to subtract is less than zero
      */
-    void removeCE(int amount) throws NullPointerException;
+    void removeCE(int amount) throws IllegalArgumentException;
 
     /**
      * Sets CE user's to null
@@ -60,8 +81,26 @@ public interface ICursedEnergyCapability {
     boolean hasEnoughCE(int amount) throws NullPointerException;
 
     /**
-     * Checks if user has any CE
-     * @return True if has, false otherwise
+     * Checks if user can regenerate CE
+     * @return True if can, false otherwise
      */
-    boolean isCursedUser();
+    boolean isCanRegenerate();
+
+    /**
+     * Sets user's ability to regenerate CE
+     * @param canRegenerate - is able to regenerate CE
+     */
+    void setCanRegenerate(boolean canRegenerate);
+
+    /**
+     * Gets user's CE mastery level
+     * @return CE mastery level
+     */
+    int getCEMasteryLevel();
+
+    /**
+     * Sets user's CE mastery level
+     * @param cursed_energy_mastery_level - CE mastery level
+     */
+    void setCEMasteryLevel(int cursed_energy_mastery_level);
 }

@@ -11,7 +11,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import java.util.UUID;
 
 public class BlackFlashDebuffEffect extends MobEffect {
-    protected BlackFlashDebuffEffect(MobEffectCategory pCategory, int pColor) {
+    public BlackFlashDebuffEffect(MobEffectCategory pCategory, int pColor) {
         super(pCategory, pColor);
     }
 

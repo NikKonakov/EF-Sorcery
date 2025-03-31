@@ -17,9 +17,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.niksol841.ef_sorcery.config.Config;
+import net.niksol841.ef_sorcery.registry.EFSorceryCommands;
+import net.niksol841.ef_sorcery.registry.EFSorceryEffects;
+import net.niksol841.ef_sorcery.registry.SorceryItems;
+import net.niksol841.ef_sorcery.skill.EFSSkillDataKeys;
 import net.niksol841.ef_sorcery.world.capabilities.item.EFCursedFistCapability;
-import net.niksol841.ef_sorcery.world.effects.EFSorceryEffects;
-import net.niksol841.ef_sorcery.world.item.SorceryItems;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -46,6 +48,8 @@ public class ef_sorcery {
 //        BLOCKS.register(modEventBus);
         SorceryItems.ITEMS.register(modEventBus);
         EFSorceryEffects.EFFECTS.register(modEventBus);
+//        EFSorceryAttributeRegistry.ATTRIBUTES.register(modEventBus);
+        EFSSkillDataKeys.DATA_KEYS_DEFERRED_REGISTER.register(modEventBus);
 //        CREATIVE_MODE_TABS.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in

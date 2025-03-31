@@ -2,7 +2,6 @@ package net.niksol841.ef_sorcery.world.capabilities.player;
 
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;
@@ -11,7 +10,7 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
-import net.niksol841.ef_sorcery.main.ef_sorcery;
+import net.niksol841.ef_sorcery.registry.EFSorceryResourceLocations;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -19,8 +18,6 @@ public class CursedEnergyPlayerCapabilityProvider implements ICapabilityProvider
 
     public static Capability<CursedEnergyPlayerCapability> PLAYER_CURSED_ENERGY_CAPABILITY = CapabilityManager.get(new CapabilityToken<>() {
     });
-
-    public static final ResourceLocation IDENTIFIER = new ResourceLocation(ef_sorcery.MOD_ID, "cursed_energy_capacity_capability");
 
     private CursedEnergyPlayerCapability cursed_energy = null;
 
@@ -33,6 +30,10 @@ public class CursedEnergyPlayerCapabilityProvider implements ICapabilityProvider
         return this.cursed_energy;
     }
 
+    public LazyOptional<CursedEnergyPlayerCapability> getOptional(){
+        return this.optional;
+    }
+
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
         if (cap == PLAYER_CURSED_ENERGY_CAPABILITY){
@@ -42,11 +43,12 @@ public class CursedEnergyPlayerCapabilityProvider implements ICapabilityProvider
     }
     void invalidate(){
         this.optional.invalidate();
+        this.cursed_energy = null;
     }
 
     public static void attach(final AttachCapabilitiesEvent<LivingEntity> event){
         final CursedEnergyPlayerCapabilityProvider provider = new CursedEnergyPlayerCapabilityProvider();
-        event.addCapability(CursedEnergyPlayerCapabilityProvider.IDENTIFIER, provider);
+        event.addCapability(EFSorceryResourceLocations.IDENTIFIER, provider);
     }
 
     public CursedEnergyPlayerCapabilityProvider(){

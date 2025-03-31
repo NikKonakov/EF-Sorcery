@@ -5,5 +5,7 @@
   "effect.ef_sorcery.black_flash_debuff_effect": "Black Sparks Disruption",
   "black_flash_buff_message": "You feel power surges into you",
   "black_flash_buff_effect_start_message": "You feel tremendous power flows through you",
-  "black_flash_buff_effect_stop_message": "The given power fades away from you..."
+  "black_flash_buff_effect_stop_message": "The given power fades away from you...",
+  "commands.error.execution.failed": "Failed to execute command",
+  "commands.error.reason.player_not_found": "Error: Player not found"
 }
