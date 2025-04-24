@@ -33,7 +33,7 @@ public class EFSorcerySkills {
         DIVERGENT_FIST_1 = modRegistry.build("divergent_fist_skill", DivergentFistLvl1Skill::new, ConditionalWeaponInnateSkill.createConditionalWeaponInnateBuilder());
 //        DIVERGENT_FIST_2 = modRegistry.build("divergent_fist_2_skill", DivergentFistLvl2Skill::new, ConditionalWeaponInnateSkill.createConditionalWeaponInnateBuilder());
 //        DIVERGENT_FIST_3 = modRegistry.build("divergent_fist_3_skill", DivergentFistLvl3Skill::new, ConditionalWeaponInnateSkill.createConditionalWeaponInnateBuilder());
-        SIMPLE_TAIJUTSU_SKILL = modRegistry.build("simple_taijutsu_skill", SimpleTaijutsuSkill::new, ConditionalWeaponInnateSkill.createConditionalWeaponInnateBuilder());
+        SIMPLE_TAIJUTSU_SKILL = modRegistry.build("simple_taijutsu_skill", SimpleTaijutsuSkill::new, WeaponInnateSkill.createWeaponInnateBuilder());
     }
 
 }

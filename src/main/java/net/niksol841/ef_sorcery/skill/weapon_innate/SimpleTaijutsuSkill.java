@@ -6,9 +6,11 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.niksol841.ef_sorcery.registry.EFSorceryAnimations;
 import net.niksol841.ef_sorcery.skill.EFSSkillDataKeys;
 import reascer.wom.gameasset.WOMAnimations;
 import yesman.epicfight.api.animation.AttackAnimationProvider;
+import yesman.epicfight.api.animation.types.AttackAnimation;
 import yesman.epicfight.api.animation.types.StaticAnimation;
 import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
 import yesman.epicfight.gameasset.Animations;
@@ -22,12 +24,9 @@ import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 
-public class SimpleTaijutsuSkill extends ConditionalWeaponInnateSkill {
+public class SimpleTaijutsuSkill extends WeaponInnateSkill {
     public SimpleTaijutsuSkill(Builder builder) {
-        super(builder
-                .setSelector((executor)-> executor.getSkill(SkillSlots.WEAPON_INNATE).getDataManager().getDataValue(EFSSkillDataKeys.COMBO.get()))
-                .setAnimations(()-> (yesman.epicfight.api.animation.types.AttackAnimation) WOMAnimations.ENDERBLASTER_ONEHAND_SHOOT, ()-> (yesman.epicfight.api.animation.types.AttackAnimation) WOMAnimations.ENDERBLASTER_TWOHAND_AIRSHOOT, ()-> (yesman.epicfight.api.animation.types.AttackAnimation) WOMAnimations.ENDERBLASTER_ONEHAND_JUMPKICK)
-        );
+        super(builder);
         builder.setResource(Resource.WEAPON_CHARGE);
         builder.setActivateType(ActivateType.ONE_SHOT);
         builder.setCategory(SkillCategories.WEAPON_INNATE);
@@ -69,28 +68,12 @@ public class SimpleTaijutsuSkill extends ConditionalWeaponInnateSkill {
     }
 
     @Override
-    public WeaponInnateSkill registerPropertiesToAnimation() {
-        return this;
-    }
-
-    @Override
     public void executeOnServer(ServerPlayerPatch executor, FriendlyByteBuf args) {
         int i = args.readInt();
         ServerPlayer player = executor.getOriginal();
         if (player.onGround() || player.isInWater() || !(player.fallDistance < 0.1F) || !player.level().isEmptyBlock(player.blockPosition().below()) && !(player.yo - (double)player.blockPosition().getY() > 0.2)){
             if (player.isSprinting()){
-                executor.playAnimationSynchronized(this.attackAnimations[0].get(), 0F);
-            }
-            else{
-                if(i == -3){
-                    executor.playAnimationSynchronized(this.attackAnimations[0].get(), 0F);
-                }
-                else if(i == 0){
-                    executor.playAnimationSynchronized(this.attackAnimations[1].get(), 0F);
-                }
-                else if(i == 1){
-                    executor.playAnimationSynchronized(this.attackAnimations[2].get(), 0F);
-                }
+                executor.playAnimationSynchronized(EFSorceryAnimations.DIVERGENT_FIST_HEAVY_PUNCH_SKILL, 0F);
             }
         }
     }

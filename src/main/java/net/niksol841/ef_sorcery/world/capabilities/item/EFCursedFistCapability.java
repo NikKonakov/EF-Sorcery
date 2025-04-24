@@ -6,6 +6,7 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.niksol841.ef_sorcery.registry.EFSorceryAnimations;
 import net.niksol841.ef_sorcery.registry.EFSorcerySkills;
 import net.niksol841.ef_sorcery.main.ef_sorcery;
 import net.niksol841.ef_sorcery.world.capabilities.player.CursedEnergyPlayerCapabilityProvider;
@@ -52,7 +53,7 @@ public class EFCursedFistCapability {
                 .hitSound(EpicFightSounds.BLUNT_HIT.get()).hitParticle(EpicFightParticles.HIT_BLUNT.get())
                 .canBePlacedOffhand(false)
 
-                .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.FIST_AUTO1, Animations.FIST_AUTO2, Animations.FIST_AUTO3, Animations.FIST_DASH, Animations.FIST_AIR_SLASH)
+                .newStyleCombo(CapabilityItem.Styles.TWO_HAND, EFSorceryAnimations.DIVERGENT_FIST_AUTO_1, EFSorceryAnimations.DIVERGENT_FIST_AUTO_2, EFSorceryAnimations.DIVERGENT_FIST_AUTO_3, EFSorceryAnimations.DIVERGENT_FIST_DASH, Animations.FIST_AIR_SLASH)
                 .newStyleCombo(DivergentFistStyles.DIVERGENT_FIST_NORMAL)
                 .newStyleCombo(DivergentFistStyles.DIVERGENT_FIST_ENHANCED)
                 .newStyleCombo(DivergentFistStyles.DIVERGENT_FIST_AWAKENING)

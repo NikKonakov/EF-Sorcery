@@ -17,6 +17,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.niksol841.ef_sorcery.config.Config;
+import net.niksol841.ef_sorcery.registry.EFSorceryAnimations;
 import net.niksol841.ef_sorcery.registry.EFSorceryCommands;
 import net.niksol841.ef_sorcery.registry.EFSorceryEffects;
 import net.niksol841.ef_sorcery.registry.SorceryItems;
@@ -31,7 +32,7 @@ public class ef_sorcery {
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "ef_sorcery";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "ef_sorcery" namespace
 //    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "ef_sorcery" namespace
@@ -45,10 +46,10 @@ public class ef_sorcery {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(EFCursedFistCapability::register);
+        modEventBus.addListener(EFSorceryAnimations::registerAnimations);
 //        BLOCKS.register(modEventBus);
         SorceryItems.ITEMS.register(modEventBus);
         EFSorceryEffects.EFFECTS.register(modEventBus);
-//        EFSorceryAttributeRegistry.ATTRIBUTES.register(modEventBus);
         EFSSkillDataKeys.DATA_KEYS_DEFERRED_REGISTER.register(modEventBus);
 //        CREATIVE_MODE_TABS.register(modEventBus);
 
