@@ -46,31 +46,40 @@ public class EFCursedFistCapability {
                             case 1 -> DivergentFistStyles.DIVERGENT_FIST_NORMAL;
                             case 2 -> DivergentFistStyles.DIVERGENT_FIST_ENHANCED;
                             case 3 -> DivergentFistStyles.DIVERGENT_FIST_AWAKENING;
-                            default -> throw new IllegalStateException("Unexpected value: " + cap.getCEMasteryLevel());
+                            default -> throw new IllegalStateException("EF_SORCERY: Unexpected value: Mastery Level =" + cap.getCEMasteryLevel());
                         };
                     }
         }).collider(ColliderPreset.FIST)
                 .hitSound(EpicFightSounds.BLUNT_HIT.get()).hitParticle(EpicFightParticles.HIT_BLUNT.get())
                 .canBePlacedOffhand(false)
 
+                /**
+                 * Combos
+                 */
                 .newStyleCombo(CapabilityItem.Styles.TWO_HAND, EFSorceryAnimations.DIVERGENT_FIST_AUTO_1, EFSorceryAnimations.DIVERGENT_FIST_AUTO_2, EFSorceryAnimations.DIVERGENT_FIST_AUTO_3, EFSorceryAnimations.DIVERGENT_FIST_DASH, Animations.FIST_AIR_SLASH)
                 .newStyleCombo(DivergentFistStyles.DIVERGENT_FIST_NORMAL)
                 .newStyleCombo(DivergentFistStyles.DIVERGENT_FIST_ENHANCED)
                 .newStyleCombo(DivergentFistStyles.DIVERGENT_FIST_AWAKENING)
                 .newStyleCombo(CapabilityItem.Styles.MOUNT, Animations.SWORD_MOUNT_ATTACK)
 
+                /**
+                 * Skills
+                 */
                 .innateSkill(CapabilityItem.Styles.TWO_HAND, (itemstack) -> EFSorcerySkills.SIMPLE_TAIJUTSU_SKILL)
                 .innateSkill(DivergentFistStyles.DIVERGENT_FIST_NORMAL, (itemstack) -> EFSorcerySkills.DIVERGENT_FIST_1)
 //                .innateSkill(DivergentFistStyles.DIVERGENT_FIST_ENHANCED, (itemstack) -> EFSorcerySkills.DIVERGENT_FIST_2)
 //                .innateSkill(DivergentFistStyles.DIVERGENT_FIST_AWAKENING, (itemstack) -> EFSorcerySkills.DIVERGENT_FIST_3)
 
+                /**
+                 * Living Motions Animations
+                 */
                 .comboCancel((style) -> false)
-                .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, Animations.BIPED_IDLE)
-                .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, Animations.BIPED_HOLD_TACHI)
+                .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, EFSorceryAnimations.DIVERGENT_FIST_IDLE)
+                .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, Animations.BIPED_WALK)
                 .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.CHASE, Animations.BIPED_WALK)
-                .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.RUN, Animations.BIPED_RUN_DUAL)
-                .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SWIM, Animations.BIPED_HOLD_SPEAR)
-                .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.LONGSWORD_GUARD);
+                .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.RUN, EFSorceryAnimations.DIVERGENT_FIST_RUN)
+                .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SWIM, Animations.BIPED_SWIM)
+                .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.BIPED_BLOCK);
         return builder;
     };
 
