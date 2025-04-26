@@ -63,7 +63,7 @@ public class SimpleTaijutsuSkill extends WeaponInnateSkill {
         ServerPlayer player = executor.getOriginal();
         if (player.onGround() || player.isInWater() || !(player.fallDistance < 0.1F) || !player.level().isEmptyBlock(player.blockPosition().below()) && !(player.yo - (double)player.blockPosition().getY() > 0.2)){
             if (player.isSprinting()){
-                executor.playAnimationSynchronized(EFSorceryAnimations.DIVERGENT_FIST_STRONG_STRIKE, 0F);
+                executor.playAnimationSynchronized(EFSorceryAnimations.DIVERGENT_FIST_TRIPLE_KICK_SKILL, 0F);
             }
         }
     }

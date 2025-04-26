@@ -66,7 +66,7 @@ public class EFCursedFistCapability {
                  * Skills
                  */
                 .innateSkill(CapabilityItem.Styles.TWO_HAND, (itemstack) -> EFSorcerySkills.SIMPLE_TAIJUTSU_SKILL)
-                .innateSkill(DivergentFistStyles.DIVERGENT_FIST_NORMAL, (itemstack) -> EFSorcerySkills.DIVERGENT_FIST_1)
+//                .innateSkill(DivergentFistStyles.DIVERGENT_FIST_NORMAL, (itemstack) -> EFSorcerySkills.DIVERGENT_FIST_1)
 //                .innateSkill(DivergentFistStyles.DIVERGENT_FIST_ENHANCED, (itemstack) -> EFSorcerySkills.DIVERGENT_FIST_2)
 //                .innateSkill(DivergentFistStyles.DIVERGENT_FIST_AWAKENING, (itemstack) -> EFSorcerySkills.DIVERGENT_FIST_3)
 
