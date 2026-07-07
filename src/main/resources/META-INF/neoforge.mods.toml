@@ -1,0 +1,32 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "All Rights Reserved"
+issueTrackerURL = "https://github.com/your-org/epicfight-sorcery/issues"
+
+[[mods]]
+modId = "${modId}"
+version = "${modVersion}"
+displayName = "Epic Fight: Sorcery"
+authors = "Your Name"
+description = '''Adds a Sorcerer subclass to Epic Fight: mana infusion, spell-augmented combos and a dynamic magic-driven fighting style.'''
+
+[[dependencies."${modId}"]]
+    modId = "neoforge"
+    type = "required"
+    versionRange = "[${neoforgeVersion},)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies."${modId}"]]
+    modId = "minecraft"
+    type = "required"
+    versionRange = "[${minecraft}]"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies."${modId}"]]
+    modId = "epicfight"
+    type = "required"
+    versionRange = "[21.15,)"
+    ordering = "AFTER"
+    side = "BOTH"
