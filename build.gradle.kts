@@ -54,7 +54,6 @@ neoForge {
             systemProperty("forge.logging.markers", "REGISTRIES")
         }
     }
-
     mods {
         register(modId) {
             sourceSet(sourceSets.main.get())
@@ -69,6 +68,13 @@ sourceSets.main {
 dependencies {
     // Epic Fight is a hard, required dependency for this addon.
     implementation("maven.modrinth:epic-fight:$epicfightVersion")
+    implementation("maven.modrinth:AANobbMI:S3DUMfBo")//Sodium
+    implementation("maven.modrinth:NNAgCjsB:5zRIon6w") //Entity Culling
+    implementation("maven.modrinth:uXXizFIs:x7kQWVju")//FerriteCore
+    implementation("maven.modrinth:gvQqBUqZ:DDUrRVCA")//Lithium
+    implementation("maven.modrinth:YL57xq9U:KduFYu4t")//Iris Shaders
+    implementation("maven.modrinth:5ZwdcRci:zxT50PTW")//Immediately Fast
+
 }
 
 tasks.processResources {
