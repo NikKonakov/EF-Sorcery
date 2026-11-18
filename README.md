@@ -19,12 +19,13 @@ Epic Fight turns Minecraft combat into an action-game system with animated attac
 
 ## Roadmap
 
-- [x] NeoForge 1.21.1 project with Epic Fight as a required dependency
-- [x] Custom skill slots: `SORCERY_MANA_INFUSE` and `SORCERY_IDENTITY`
-- [ ] Mana as a player resource
-- [ ] First Mana Infuse skill
-- [ ] Sorcerer identity skill
-- [ ] Custom animations and spell-augmented combos
+- [ ] **M0 Foundation**: a clean repo on Epic Fight 21.17.3.1 _(in progress)_
+- [ ] **M1 Cursed energy core**: CE bar, reinforcement, weapon penalty
+- [ ] **M2 Unarmed combat**: fist style, CE-infused hits, techniques → **v0.1**
+- [ ] **M3 Black Flash and Focus**: the signature mechanic → **v0.2**
+- [ ] **M4 Skill tree**: an EF:Sorcery page in Epic Fight: Skill Tree → **v0.3**
+
+Step-by-step plan and progress: [ROADMAP.md](ROADMAP.md).
 
 ## Requirements
 
