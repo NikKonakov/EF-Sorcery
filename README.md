@@ -33,7 +33,7 @@ Step-by-step plan and progress: [ROADMAP.md](ROADMAP.md).
 |---|---|
 | Minecraft | 1.21.1 |
 | NeoForge | 21.1.219 or newer |
-| Epic Fight | 21.15 or newer (NeoForge build for 1.21.1) |
+| Epic Fight | 21.17.3 or newer (NeoForge build for 1.21.1) |
 | Java (to build) | JDK 21 |
 
 ## Installation

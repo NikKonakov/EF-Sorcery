@@ -2,7 +2,7 @@
 
 The step-by-step plan behind the short roadmap in the [README](README.md): five milestones, three releases, and every milestone ends in something you can show.
 
-**Next up:** step 0.2, then 0.3 and 0.5 to finish M0.
+**Next up:** step 0.3, then 0.5 to finish M0.
 
 ## How we work
 
@@ -30,7 +30,7 @@ Agreed on 18 Nov 2026.
 
 | Milestone | Ships | Skill practiced | Size | Status |
 |---|---|---|---|---|
-| [M0 Foundation](#m0-foundation) | A clean repo on Epic Fight 21.17.3.1 | Git hygiene | ~2 sessions | In progress (3 of 6) |
+| [M0 Foundation](#m0-foundation) | A clean repo on Epic Fight 21.17.3.1 | Git hygiene | ~2 sessions | In progress (4 of 6) |
 | [M1 Cursed energy core](#m1-cursed-energy-core) | CE bar, reinforcement, weapon penalty | Unit tests (JUnit 5) | ~10 sessions | Planned |
 | [M2 Unarmed combat](#m2-unarmed-combat), **v0.1** | Fist style, CE-infused hits, 1 to 2 techniques | Reading a large codebase; releases | ~10 to 14 sessions | Planned |
 | [M3 Black Flash and Focus](#m3-black-flash-and-focus), **v0.2** | Unlock by experience, timing check, the zone | Client-server authority | ~10 to 14 sessions | Planned |
@@ -48,7 +48,7 @@ A clean repo on the newest Epic Fight.
 Already in place: a NeoForge 1.21.1 project with Epic Fight as a required dependency, the custom skill slots `SORCERY_MANA_INFUSE` and `SORCERY_IDENTITY`, and a first Epic Fight event hook that reports hit damage and spawns crit particles.
 
 - [x] **0.1** Fill `.gitignore` and stop tracking the IDE folder `.idea/` (`2617ab0`, `8e10651`).
-- [ ] **0.2** Set the real author and `issueTrackerURL` (`https://github.com/NikKonakov/EF-Sorcery/issues`) in `neoforge.mods.toml`.
+- [x] **0.2** Set the real author and `issueTrackerURL` (`https://github.com/NikKonakov/EF-Sorcery/issues`) in `neoforge.mods.toml`.
 - [ ] **0.3** Move the dev-only mods (Sodium, Lithium, FerriteCore, ImmediatelyFast, Entity Culling) from `implementation` to `runtimeOnly`. Epic Fight: Skill Tree stays until M4 makes it an optional dependency.
 - [x] **0.4** Pin `epicfightVersion=21.17.3.1-mc1.21.1-neoforge` and run the client (`6b09e93`).
 - [ ] **0.5** Rename "mana" to cursed energy in the skill slots, the README and the mod description.
